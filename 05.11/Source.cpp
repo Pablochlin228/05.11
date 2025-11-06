@@ -81,4 +81,24 @@ int main()
 
     //6
 
+    ofstream result;
+    result.open("Result.txt", ios::out | ios::app);
+
+    ifstream part1;
+    part1.open("Part1.txt", ios::in);
+
+    ifstream part2;
+    part2.open("Part2.txt", ios::in);
+
+    ifstream part3;
+    part3.open("Part3.txt", ios::in);
+
+    ifstream part4;
+    part4.open("Part4.txt", ios::in);
+
+    for (int i = 0; i < 4; i++)
+    {
+        const int size = 250;
+        char buffer[size] = {};
+    }
 }

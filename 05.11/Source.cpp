@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
 	//5
-	ofstream out;
+	/*ofstream out;
 	out.open("CopyText.txt", ios::out | ios::trunc);
 
 	ifstream in;
@@ -77,46 +77,24 @@ int main()
     else
     {
         cout << "Could not open the file" << endl;
-    }
+    }*/
 
     //6
 
     ofstream result;
     result.open("Result.txt", ios::out | ios::app);
 
-    ifstream part1;
-    part1.open("Part1.txt", ios::in);
+    ifstream part1("Part1.txt");
+    ifstream part2("Part2.txt");
+    ifstream part3("Part3.txt");
+    ifstream part4("Part4.txt");
 
-    ifstream part2;
-    part2.open("Part2.txt", ios::in);
+    const int size = 600;
+    char buffer[size] = {};
 
-    ifstream part3;
-    part3.open("Part3.txt", ios::in);
-
-    ifstream part4;
-    part4.open("Part4.txt", ios::in);
-
-    if (part1)
+    for (int i = 0; i < 4; i++)
     {
-        const int size = 250;
-        char buffer[size] = {};
-
-        while (part1.getline(buffer, size))
-        {
-            cout << buffer << endl;
-            result << buffer << endl;
-        }
-        part1.close();
-        result.close();
-    }
-    else
-    {
-        cout << "Could not open the file" << endl;
-    }
-
-    /*for (int i = 0; i < 4; i++)
-    {
-        if (i == 0)
+        if (i == 0 && part1.is_open())
         {
             while (part1.getline(buffer, size))
             {
@@ -125,7 +103,7 @@ int main()
             }
             part1.close();
         }
-        else if (i == 1)
+        else if (i == 1 && part2.is_open())
         {
             while (part2.getline(buffer, size))
             {
@@ -134,7 +112,7 @@ int main()
             }
             part2.close();
         }
-        else if (i == 2)
+        else if (i == 2 && part3.is_open())
         {
             while (part3.getline(buffer, size))
             {
@@ -143,7 +121,7 @@ int main()
             }
             part3.close();
         }
-        else if (i == 3)
+        else if (i == 3 && part4.is_open())
         {
             while (part4.getline(buffer, size))
             {
@@ -152,6 +130,8 @@ int main()
             }
             part4.close();
         }
-    }*/
-    //result.close();
+    }
+    result.close();
+   //7
+   
 }

@@ -81,7 +81,7 @@ int main()
 
     //6
 
-    ofstream result;
+    /*ofstream result;
     result.open("Result.txt", ios::out | ios::app);
 
     ifstream part1("Part1.txt");
@@ -131,7 +131,46 @@ int main()
             part4.close();
         }
     }
-    result.close();
+    result.close();*/
    //7
-   
+    ifstream in("index.html");
+    ofstream out("wihoutIMG.html");
+
+    if (in)
+    {
+        char ch;
+        char buffer[4] = {0};
+        bool skip = false;
+
+        while(in.get(ch))
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                buffer[i] = buffer[i + 1];
+            }
+            buffer[3] = ch;
+
+            if (buffer[0] == '<' && buffer[1] == 'i' && buffer[2] == 'm' && buffer[3] == 'g')
+            {
+                skip = true;
+            }
+
+            if (skip && ch == '>')
+            {
+                skip = false;
+            }
+
+            if (!skip)
+            {
+                cout << ch;
+                out << ch;
+            }
+        }
+        in.close();
+        out.close();
+    }
+    else
+    {
+        cout << "Could not open the file" << endl;
+    }
 }

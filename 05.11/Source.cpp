@@ -96,10 +96,25 @@ int main()
     ifstream part4;
     part4.open("Part4.txt", ios::in);
 
-    const int size = 250;
-    char buffer[size] = {};
+    if (part1)
+    {
+        const int size = 250;
+        char buffer[size] = {};
 
-    for (int i = 0; i < 4; i++)
+        while (part1.getline(buffer, size))
+        {
+            cout << buffer << endl;
+            result << buffer << endl;
+        }
+        part1.close();
+        result.close();
+    }
+    else
+    {
+        cout << "Could not open the file" << endl;
+    }
+
+    /*for (int i = 0; i < 4; i++)
     {
         if (i == 0)
         {
@@ -137,6 +152,6 @@ int main()
             }
             part4.close();
         }
-    }
-    result.close();
+    }*/
+    //result.close();
 }

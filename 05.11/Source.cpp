@@ -96,9 +96,47 @@ int main()
     ifstream part4;
     part4.open("Part4.txt", ios::in);
 
+    const int size = 250;
+    char buffer[size] = {};
+
     for (int i = 0; i < 4; i++)
     {
-        const int size = 250;
-        char buffer[size] = {};
+        if (i == 0)
+        {
+            while (part1.getline(buffer, size))
+            {
+                cout << buffer << endl;
+                result << buffer << endl;
+            }
+            part1.close();
+        }
+        else if (i == 1)
+        {
+            while (part2.getline(buffer, size))
+            {
+                cout << buffer << endl;
+                result << buffer << endl;
+            }
+            part2.close();
+        }
+        else if (i == 2)
+        {
+            while (part3.getline(buffer, size))
+            {
+                cout << buffer << endl;
+                result << buffer << endl;
+            }
+            part3.close();
+        }
+        else if (i == 3)
+        {
+            while (part4.getline(buffer, size))
+            {
+                cout << buffer << endl;
+                result << buffer << endl;
+            }
+            part4.close();
+        }
     }
+    result.close();
 }
